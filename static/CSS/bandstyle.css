@@ -1,0 +1,81 @@
+
+
+.glow {
+  font-size: 60px;
+  color:#00695c  ;
+  font-family: 'Bangers';
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  padding:5px;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+.jumbotron{
+     
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    display: inline-block;
+}
+
+.jumbotron img{
+	align-items: center;
+	max-width: 300px;
+	max-height: 200px
+
+
+}
+.card{
+	height:20rem;
+	width:25rem;
+	font-family: roboto;
+	border-radius:18px;
+	background:#eceff1 ;
+	box-shadow:5px 5px 15px rgba(0,0,0,0.9);
+	text-align: center;
+	transition: 0.5s ease;
+    cursor: pointer;
+    margin:30px;
+
+
+}
+
+.card-image{
+	height:3rem;
+
+	
+}
+
+.card-body{
+	grid-area: text;
+	margin:25px;
+	
+
+}
+.card-body p {
+  color: grey;
+  font-size:15px;
+  font-weight: 300;
+}
+.card-body h2 {
+  margin-top:0px;
+  font-size:28px;
+}
+
+
+.card:hover {
+  transform: scale(1.15);
+  box-shadow: 5px 5px 15px green;
+  
+}

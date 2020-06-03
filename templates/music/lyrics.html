@@ -1,0 +1,79 @@
+{% extends 'music/base.html' %}
+{% load staticfiles %}
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Albums</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="jquery-3.1.1.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static "CSS/bandstyle.css" %}">
+</head>
+<body style="background:url('/static/images/bg.jpg'); background-size:cover">
+
+
+
+  <section class="jumbotron">
+    <img src="/static/images/lybg.gif" style="border: 5px solid #006064;"
+    >
+    <img src="/static/images/lybg1.gif"style="border: 5px solid #006064;"
+    >
+    <img src="/static/images/lybg2.gif" style="border: 5px solid #006064;"
+    >
+    <img src="/static/images/lygb3.gif" style="border: 5px solid #006064;"
+    >
+  </section>
+
+  <section>
+
+    <div class="container" style="background:url('/static/images/bg1.jpg')">
+
+      <div class="row ">
+        {% for lyrics in lyric %}
+
+
+        <div class="col-md-6 col-sm-6 align-self-center”">
+          <div class="card">
+            <div class="card-image"></div>
+
+            <div class="card-body">
+            
+            
+                  </div>
+
+              <div class="card-footer"style="background:#004d40  ;border-radius:10px;height:3rem
+              "></div>
+            </div>
+          </div>
+        
+        {% endfor %}
+
+      </div>
+    </div>
+    </section>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right" id="p_de">
+          <a href="#">Back to top</a>
+        </p>
+        
+      </div>
+    </footer>
+
+
+</body>
+</html>
+{% endblock %} 

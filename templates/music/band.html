@@ -1,0 +1,113 @@
+{% extends 'music/base.html' %}
+{% load staticfiles %}
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Albums</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="jquery-3.1.1.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Cabin Sketch' rel='stylesheet'>
+  <link rel="stylesheet" href="{% static "CSS/bandstyle.css" %}">
+</head>
+<body style="background:url('/static/images/bg.jpg'); background-size:cover">
+
+
+
+  <section class="jumbotron">
+    <img src="/static/images/lybg.gif" style="border: 5px solid #006064;"
+    >
+    <img src="/static/images/lybg1.gif"style="border: 5px solid #006064;"
+    >
+    <img src="/static/images/lybg2.gif" style="border: 5px solid #006064;"
+    >
+    <img src="/static/images/lygb3.gif" style="border: 5px solid #006064;"
+    >
+  </section>
+
+<section>
+
+<div class="container-fluid">
+  <img src="/static/images/band.jpg" style="height:25rem;width:78rem;align-items: center;padding:20px;border: 10px solid black ">
+  <div class="container" style="padding:5px">
+  <h1 class="glow">BEST BANDS OF ALL TIME.....</h1>
+</div>
+</div>
+</section>
+
+
+  <section style="padding:50px">
+
+    <div class="container" style="background:url('/static/images/bg1.jpg');">
+
+
+      <div class="row ">
+        {% for bands in band %}
+
+
+        <div class="col-md-6 col-sm-6 align-self-center”">
+          <div class="card">
+            <div class="card-image">
+             <img class="card-img-top" src="{{bands.Artist_logo}}" alt="Card image cap">
+            </div>
+
+            <div class="card-body">
+                
+                <button type="button" class="btn btn-outline-success  btn-sm" data-container="body"data-toggle="popover" data-placement="bottom" data-content="{{bands.Best_Songs}}">Best Songs...
+            </button>
+            <button type="button" class="btn btn-outline-success  btn-sm" data-container="body"data-toggle="popover" data-placement="bottom" data-content="{{bands.Best_Albums}}">Best Albums...
+           </button>
+
+          <button type="button" class="btn btn-outline-success  btn-sm" data-container="body"data-toggle="popover" data-placement="bottom" data-content="{{bands.Artist_Description}}">More...
+           </button>
+            
+            
+                  </div>
+
+              <div class="card-footer" style="background:#33691e ;border-radius:10px;height:5rem
+              ">
+                <p style="font-family: 'Cabin Sketch';
+                       font-weight:bold;
+                             color:white ;
+                   font-size: 15px">{{bands.BirthPlace}}</p>
+                <p style="font-family: 'Cabin Sketch'; font-weight:bold; color:white ;font-size: 15px">{{bands.Born}}</p>
+              </div>
+            </div>
+          </div>
+        
+        {% endfor %}
+
+      </div>
+    </div>
+    </section>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right" id="p_de">
+          <a href="#">Back to top</a>
+        </p>
+        
+      </div>
+    </footer>
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+  });
+</script>
+
+</body>
+</html>
+{% endblock %} 

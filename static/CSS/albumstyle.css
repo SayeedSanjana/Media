@@ -1,0 +1,63 @@
+
+
+body{
+	
+	font-size:14px;
+	font-weight:400;
+	color:#777;
+}
+
+h1{
+	font-size: 36px;
+	color:#555;
+	font-weight:bold;
+}
+
+h5,button{
+	font-family:Teko;
+	font-size:25px;
+	color:#333;
+	font-weight:bold;
+}
+h6{
+	font-family:Shadows Into Light;
+	font-size:20px;
+	
+	font-weight:bold;
+}
+
+#album img{
+	margin-top: -70px
+
+}
+#album i{
+	font-size:26px;
+	color:#555;
+}
+
+#album .card{
+	border-radius: 0;
+	box-shadow: 5px 5px 15px #e74c3c;
+	transition:all 0.3s ease-in;
+	-webkit-transition:all 0.3s ease-in;
+	-moz-transition:all 0.3s ease-in;
+	padding-bottom: 20px;
+	box-sizing: 100px;
+}
+
+#album .card:hover{
+	background:#e57373;
+	color:#fff;
+	border-radius:5px;
+	border:none;
+	box-shadow: 5px 5px 10px #9E9E9E;
+
+}
+
+#album .card:hover h5,#album .card:hover i{
+	color:#fff;
+
+}
+.checked {
+  color:#f57f17;
+}

@@ -1,0 +1,184 @@
+{% extends 'music/base.html' %}
+{% load staticfiles %}
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Details About The Song</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Rye' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Piedra" />
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+  
+    <link rel="stylesheet" href="{% static "CSS/detailstyle.css" %}">
+    <style>
+
+    * {
+  box-sizing: border-box;
+}
+      @media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+}
+#c {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+    </style>
+
+
+</head>
+<body>   
+
+<div class="container">
+	<div class="jumbotron">
+    <div class="float-right">
+
+  <h1 class="display-4" id="pumba">"{{detail.song_Name}}"</h1>
+  <hr class="my-4">
+  
+</div>
+<br>
+<br>
+<br>
+<br>
+    <img src="{{detail.song_logo}} "style="float:left;">
+    
+
+  <p class="lead" >{{detail.song_description}}</p>
+
+</div>
+   <!-- <p class="lead" >{{detail.song_description}}</p>-->
+    
+        <!--<div class="float-right">
+
+  <h1 class="display-4" id="pumba">"{{detail.song_Name}}"</h1>
+  <hr class="my-4">
+</div>-->
+
+<!--<div class="container">
+  <br>
+  <br>
+  <br>
+  <br>
+  <p class="lead" >{{detail.song_description}}</p>
+</div>-->
+
+  </div>
+</div>
+
+<section>
+    
+<div class="container"id="c" style="align-items: center; padding:15px;padding-bottom: 25px">
+  <div class="card" style="width: 22rem;background-image: url('/static/images/audio.jpg');background-size:cover;">
+  
+    
+  <div class="card-body">
+    <h5 class="card-title">
+      <button type="button" class="btn btn-success">
+      <i class="fas fa-play">PLAY</i></button></h5>
+      <div class="container-fluid" style="padding:10px">
+    <audio controls>
+    <source src="{{detail.audio_file.url}}" type="audio/mpeg">
+  </audio>
+  </div>
+  <div class="container-fluid" style="padding:10px">
+    <button type="button" class="btn btn-info  btn-sm" data-container="body"data-toggle="popover" data-placement="bottom" data-content="{{detail.lyrics}}">View Lyrics
+            </button>
+  
+</div>
+  </div>
+</div>
+</section>
+
+
+
+  <section>
+   <div class="container-fluid" >
+<section>
+
+<div class=container style=" background-image:url('/static/images/dirty.jpg');background-size:cover;max-width: 100%;border-right: 5px;padding-right: 5px;padding-left: 5px">
+    
+<div class="row" style="padding:25px">
+  <div class="column">
+    <div class="card">
+      <p><i class="fa fa-film" aria-hidden="true"style="font-size:40px"></i>
+</p>
+      <h3>Genre</h3>
+      <p style="font-size:25px ;font-family:Lobster">"{{detail.genre}}"</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <p>
+<i class="fas fa-compact-disc"aria-hidden="true"style="font-size:40px"></i>
+      <h3>Album</h3>
+      <p style="font-size:25px ;font-family:Lobster"><a href="{% url 'music:album' %}"><button type="button" class="btn btn-warning">"{{detail.album}}"</button></a></p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <p><i class="fas fa-file-audio"style="font-size:40px"></i></p>
+      <h3>File Type</h3>
+      <p style="font-size:25px ;font-family:Lobster">"{{detail.song_filetype}}"</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <p><i class="fa fa-file" aria-hidden="true"style="font-size:40px"></i>
+
+      </p>
+      <h3>File Length</h3>
+      <p style="font-size:25px ;font-family:Lobster">"{{detail.length}}"</p>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+</div>
+
+
+		
+<footer class="text-muted">
+      <div class="container">
+        <p class="float-right" id="p_de">
+          <a href="#">Back to top</a>
+        </p>
+        
+      </div>
+    </footer>
+
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+  });
+</script>
+
+ 
+</body>
+
+</html>
+{% endblock %} 

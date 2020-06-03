@@ -1,0 +1,251 @@
+{% extends 'music/base.html' %}
+
+{% block body %}
+{% load staticfiles %}
+{% load my_filter %}
+
+<!DOCTYPE html>
+
+
+
+
+<html>
+<head>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Artist Information</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+<link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#00695c">
+
+<link rel="stylesheet" href="{% static "CSS/musicstyle.css" %}">
+
+<!--<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+        media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+
+      }
+    } 
+    </style>-->
+    <style>
+  
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+     
+    
+    <link href="carousel.css" rel="stylesheet">
+
+  <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="{% static "CSS/musicstyle.css" %}">-->
+</head>
+
+<body style="background:white">
+
+
+  <!--<main role="main">-->
+    <div class="container-fluid">
+
+  
+  <div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner" style="width:500px align="center" ">
+    <div class="carousel-item active">
+      <img src="{% static "images/artist.jpg" %}" alt="Los Angeles" height="200" width="500">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "images/artist1.jpg" %}" alt="Chicago" height="200" width="500" >
+    </div>
+        <div class="carousel-item">
+      <img src="{% static "images/artist7.jpg" %}" alt="Chicago" height="200" width="500" >
+    </div> 
+    <div class="carousel-item">
+      <img src="{% static "images/artist2.jpg" %}" alt="Chicago" height="200" width="500" >
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "images/artist4.jpg" %}" alt="Chicago" height="200" width="500" >
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "images/artist5.jpg" %}" alt="Chicago" height="200" width="500" >
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "images/artist6.jpg" %}" alt="Chicago" height="200" width="500" >
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "images/artists3.jpg" %}"" alt="New York" height="200" width="500">
+    </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+</div>
+
+
+ <!--<img src="{% static "images/background.jpg" %}"-->
+    
+<div class="container-fluid" >
+  
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<div style="background-color:#181C30;color:white;padding:15px">Scroll Down</div>
+<div style="background-color:#1C2331;padding:30px 30px 2500px">
+
+  
+  <div class="container-fluid">
+  <button type="button" class="btn btn-outline-success btn-lg ">
+    <a href="{% url 'music:band' %}" style="font-color=white">
+<i class="fas fa-bomb" style="color:white"> Look For Top Bands !!</i></a></button>
+    <h1></h1>
+    <h2></h2>
+  </div>
+
+ <div class="container-fluid"> 
+<h2 align="center" style="background:white;font-family:Satisfy"><strong>Top Solo Musicians Of All Time</strong></h2>
+
+
+</div>
+
+<div class="container-xl">
+	<table class="table table-striped table-dark" id="ar_table">
+ 	<!--<caption>Artist List</caption>-->
+ 	<thead>
+ 		<tr>
+ 			<th>Artist Name</th>
+ 			<th>Birth Place</th>
+ 			<th>Born</th>
+ 			<th>Best Albums</th>
+ 			<th>Best Songs</th>
+ 			
+
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 		{% for artists in artist_info %}
+      
+   		       <tr>
+   			        <td>
+
+                   <button type="button" class="btn btn-warning">
+                       <a style="background:#fff59"href="">{{artists.Artist_name}}
+                       </a></button>
+                </td>
+   			        <td>{{artists.BirthPlace}}</td>
+   			        <td>{{artists.Born}}</td>
+   			         <td>
+                  <ul class="list-group">
+              
+                 {% with artists.Best_Albums|split:"," as skills %}
+                    {% for skill in skills %}
+                         <i class="fas fa-drum" style="font-size:15px"></i>
+
+                         <li class= "list-group-item active" id="pandu">{{ skill }}</li><br>
+                    {% endfor %}  
+                 {% endwith %}
+               
+
+                  </ul> 
+     
+                </td>
+   			        <td>
+               <ul class="list-group">
+              
+                 {% with artists.Best_Songs|split:"," as skills %}
+                    {% for skill in skills %}
+                         <i class="fas fa-guitar" style="font-size:15px"></i>
+                         <li class= "list-group-item active" id="pandu">{{ skill }}</li><br>
+                    {% endfor %}  
+                 {% endwith %}
+               
+
+               </ul> 
+             
+            
+             </td>
+   		       </tr>
+      
+ 		{% endfor %}
+ 	</tbody>
+ </table>
+</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+ 
+</body>
+
+</html>
+{% endblock %} 
+  
+
+ 
+ 

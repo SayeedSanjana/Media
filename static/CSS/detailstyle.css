@@ -1,0 +1,100 @@
+
+body{
+	background:url('/static/images/backgrounddetail1.jpg');
+	background-size:cover;
+	border-right:20px;
+
+}
+h1{
+	font-family: 'Rye';
+	font-size:10px;
+}
+
+img {
+  border: 5px solid #880e4f;
+  float:left;
+  margin-right:2px;
+  margin-top: 5px;
+  width:300px;
+  
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.jumbotron {
+	margin-top: 20px;
+    max-width: 100%;
+    padding-top: 40px;
+    padding-bottom: 250px;
+    color: inherit;
+    background-color:#bdbdbd;
+}
+
+.jumbotron h1 {
+    position: relative;
+    display: block;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    padding-left: 40px;
+}
+.jumbotron p {
+    
+    display: block;
+    color: white;
+    font-family:Piedra;
+    font-size:25px;
+       
+}
+
+ 
+
+.container img {
+  float: left;
+  border-radius: 50%;
+  margin:auto;
+  display: block;
+     
+  }
+
+  
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding:0 5px;
+}
+
+.row {margin: 0 -3px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #444;
+  color: white;
+}
+
+.fa {font-size:50px;}
+  
+
+
+
+  

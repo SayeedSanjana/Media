@@ -1,0 +1,145 @@
+
+body{
+    background:url('/static/images/background.jpg');
+}
+#enjoy{
+    font-family: Monoton;
+    font-weight:bold;
+    color:#37474F;
+}
+#boo{
+     font-family: 'Righteous';
+     font-size: 20px;
+     color:grey;
+
+}
+#p_de{
+    font-family: Alonica
+}
+
+#card-section{
+    padding: 5%;
+    text-align: center;
+}
+
+.card-col{
+    padding:2% 2%;
+}
+
+.card:hover{
+    box-shadow: 5px 10px 20px 1px black;
+}
+
+img{
+    height:200px;
+    width:250px;
+}
+.checked {
+  color: orange;
+}
+p{
+    font-family: Satisfy
+
+}
+h5{
+    font-style  : italic
+    font-weight : bold
+}
+
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  
+  background-color:#00695c;
+}
+.jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y) * 2);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+}
+.jumbotron {
+    padding-top: var(--jumbotron-padding-y);
+    padding-bottom: var(--jumbotron-padding-y);
+    margin-bottom: 0;
+    background-color: #fff;
+}
+.text-center {
+    text-align: center !important;
+}
+.jumbotron {
+    padding: 4rem 2rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+}
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+}
+article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color:black;
+    text-align: left;
+}
+:root {
+    --jumbotron-padding-y: 3rem;
+}
+body{margin-top: 50px; margin-bottom: 100px;}
+
+/* equal card height */
+.row-equal > div[class*='col-'] {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.row-equal .card {
+   width: 100%;
+}
+
+/* ensure equal card height inside carousel */
+.carousel-inner>.row-equal.active, 
+.carousel-inner>.row-equal.next, 
+.carousel-inner>.row-equal.prev {
+    display: flex;
+}
+
+/* prevent flicker during transition */
+.carousel-inner>.row-equal.active.left, 
+.carousel-inner>.row-equal.active.right {
+    opacity: 0.5;
+    display: flex;
+}
+
+
+/* control image height */
+.card-img-top-250 {
+    max-height: 250px;
+    overflow:hidden;
+}
+
+
+.card-header{color:dodgerblue}
