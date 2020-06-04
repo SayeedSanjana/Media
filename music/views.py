@@ -4,6 +4,7 @@ from music.models import Artist,Album,Lyrics,Songs
 from django.views import generic
 from django.templatetags.static import static
 from django.db import connection
+from music.forms import UserForm,UserInfoForm
 
 
 
@@ -76,6 +77,38 @@ def band(request):
 	band=Artist.objects.order_by('Artist_name').filter(Category="Band")
 	band_diction={'band':band}
 	return render(request,'music/band.html',context=band_diction)
+
+
+
+
+def register(request):
+
+	registered=False
+	if request.method=='POST':
+		user_form=UserForm(data=request.POST)
+		user_info_form=UserInfoForm(data=request.POST)
+
+		if user_form.isvalid() and user_info_form.isvalid():
+			user.set_password(user.password)
+			user.save()
+		user_info=user_info_form.save(commit=False)
+		user_info.user=user	
+		if 'profile_pic' in request.FILES:
+			user_info.profile_pic=request.FILES['profile_pic']
+		user_info.save()
+		registered=True	
+
+			
+	else:
+		user_form=UserForm()
+		user_info_form=UserInfoForm()
+	    
+	reg_diction={'user_form':user_form,'user_info_form':user_info_form,'registered':registered,}
+	return render(request,'music/register.html',context=reg_diction)
+
+
+
+
 	
 
 

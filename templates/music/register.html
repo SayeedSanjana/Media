@@ -1,0 +1,9 @@
+{% load staticfiles %}
+
+<form enctype="multipart/form-data" method="POST">
+
+    {{user_form.as_p}}
+    {{user_info_form.as_p}}
+    {% csrf_token %}
+    <input type="submit" name="submit" value="Register">
+	</form>
