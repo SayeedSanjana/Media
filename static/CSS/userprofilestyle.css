@@ -1,0 +1,51 @@
+
+ .card{
+	border-radius: 0;
+	box-shadow: 10px 10px 20px #004d40 ;
+	transition:all 0.3s ease-in;
+	-webkit-transition:all 0.3s ease-in;
+	-moz-transition:all 0.3s ease-in;
+	padding-bottom: 20px;
+	box-sizing: 100px;
+}
+
+.card:hover{
+	background:#e57373;
+	color:#fff;
+	border-radius:5px;
+	border:none;
+	box-shadow: 5px 5px 10px black;
+
+}
+
+.card:hover h5,#album .card:hover i{
+	color:blackS;
+}
+img{
+	border-radius: 100%;
+	border:2px black;
+	
+	
+}
+.card-footer{
+	border-radius: 0;
+	box-shadow: 10px 10px 20px #00838f  ;
+	transition:all 0.3s ease-in;
+	-webkit-transition:all 0.3s ease-in;
+	-moz-transition:all 0.3s ease-in;
+	padding-bottom: 20px;
+	box-sizing: 100px;
+}
+
+.card-footer:hover{
+	background:#e57373;
+	color:#fff;
+	border-radius:5px;
+	border:none;
+	box-shadow: 5px 5px 10px black;
+
+}
+
+.card-footer:hover h5,#album .card:hover i{
+	color:blackS;
+}

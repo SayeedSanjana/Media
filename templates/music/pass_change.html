@@ -1,10 +1,7 @@
 {% extends 'music/base.html' %}
 {% load crispy_forms_tags %}
-
 {% load staticfiles %}
 {% block body %}
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,64 +21,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Cabin Sketch' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Metal Mania' rel='stylesheet'>
+
   <!--<link rel="stylesheet" href="{% static "CSS/ba.css" %}">-->
 </head>
-<style>
-body{
-  margin:0;
-  padding:0;
-  -webkit-background-size:cover;
-}
-  
- div.transbox {
-  margin: 50px;
-  background-color:maroon;
-  opacity: 0.6;
-  border: 15px solid black
-}
+<body style="background:#ffebee ;">
+{% if changed %}
+    <div class="alert alert-success">"Password Changed Successfully!"</div>
 
-div.transbox p{
-  
-  font-weight: bold;
-  color: #000000;
-}
-
-</style>
-
-
-<body style="background:url('/static/images/registerbg3.jpg'); background-size:cover;">
-
-<!--{% if registered %}
-<div class="alert alert-success">"Congratulations!Sign Up Successful!"</div>
-
-{% else %}
-
-<form enctype="multipart/form-data" method="POST">
-
-    {{user_form.as_p}}
-    {{user_info_form.as_p}}
-    {% csrf_token %}
-    <input type="submit" name="submit" value="Sign Up">
-	</form>
-{% endif %}	-->
-{% if registered %}
-<div class="alert alert-success">"Congratulations!Account Created Successfully!"<a href="{% url 'music:login' %}">Login Here</a></div>
-
-{% else %}
-<div class="container"style="padding: 300px;padding-top: 30px;">
-   <div class="transbox">
-  
-<h2 style="font-weight: italic;color:white;padding:10px">Create New Account:</h2>
-<form method="POST" style="color:white ;font-weight: bold;padding:10px">
-  {{form|crispy}}
-  {% csrf_token %}
- <button type="submit"class="btn btn-success btn-sm" >Create Account</button>
-</form>
-<p style="color:white;padding:10px">Already have an account? <a href="{% url 'music:login' %}">Login Here</a></p>
-</div>
-</div>
 {% endif %}
-
+<div class="container" style="padding-left: 300px;padding-top: 30px;border-bottom:6px solid #4caf50;margin-bottom:5px ">
+  <h2 style="font-family:Metal Mania"><i style="font-size:40px;padding:5px"class="fas fa-pencil-alt"></i>
+Set New Password:</h2>
+  </div>
+  <div class="container"style="padding: 300px;padding-top: 30px;">
+  <form method="POST">
+      {{form|crispy}}
+      {% csrf_token %}
+ <button type="submit"class="btn btn-info btn-sm" >Change Password</button>
+</form>
 </body>
-</html>
+</html> 
+
 {% endblock %}
