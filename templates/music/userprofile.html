@@ -12,6 +12,15 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".floating-icon").click(function(){
+        $(this).toggleClass("active");
+        $(".btn-1").toggleClass("active");
+
+      });
+    });
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -40,20 +49,20 @@ h6{
 }
 </style>
 </head>
-<body style="background:url('/static/images/proimg.jpg');
-  background-size:cover;">
+<body>
 <div class="container">
 <main role="main" class="container">
-  <div class="jumbotron"style="background: #929fba">
-    <h1 style="font-family: Bangers ">My Profile</h1>
-    <p class="lead" style="font-family:Cabin Sketch">Check out your favourite albums and playlists.You can also get connected with the blog to know all the trending songs and can interact with all the talented musicians.</p>
+  <div class="jumbotron"style="background:#3E4551">
+    <h1 style="font-family: Bangers ;color:white">My Profile</h1>
+    <p class="lead" style="font-family:Cabin Sketch;color:white">Check out your favourite albums and playlists.You can also get connected with the blog to know all the trending songs and can interact with all the talented musicians.</p>
     <a class="btn btn-lg btn-success" href="/docs/4.5/components/navbar/" role="button"style="font-family: Bangers"><i class="fas fa-music"></i> View Playlists &raquo;</a>
     <a class="btn btn-lg btn-warning" href="/docs/4.5/components/navbar/" role="button" style="font-family: Bangers"><i class="fas fa-compact-disc"></i>
 View Favourite Albums &raquo;</a>
   </div>
 </main>
+</div>
 
-<div class="container"style="background: #cfd8dc;padding:15px;padding-top: 30px;width:50rem">
+<!--<div class="container"style="background: #cfd8dc;padding:15px;padding-top: 30px;width:50rem">
 <div class="card center"style="width: 18rem;padding:5px;background:#bcaaa4">
 {% if user.user_profile %}
 <img src='/medias/{{user.user_profile.profile_pic}}' class="rounded-circle center border border-dark"style="width:150px;height:150px">
@@ -90,7 +99,95 @@ View Favourite Albums &raquo;</a>
         </p>
         
       </div>
-    </footer>
+    </footer>-->
+    <section style="height:400px">
+    <div class="wrapper">
+      <div class="container d-flex" id="foo">
+        
+        <div class="img-container">
+          {% if user.user_profile %}
+             <img src='/medias/{{user.user_profile.profile_pic}}'style="width:200px;height:200px">
+             <div style="padding:10px;text-align:center">
+             <a class="btn btn-info btn-sm" href="{% url 'music:add_pro_pic' %} "style="font-family: Bangers;font-size:16px;color:black">Change Profile Picture</a></div>
+          {% else %}
+            <img src='/medias/profile_pics/Profileimg.png'style="width:200px;height:200px">
+            <div style="padding:10px;text-align:center">
+            <a class="btn btn-info btn-sm" href="{% url 'music:change_pro_pic' %}" style="font-family: Bangers;font-size:16px;color:black">Add Profile Picture</a></div>
+ 
+          {% endif %} 
+        </div>
+        <div class="content">
+          <div class="head">
+            <div>
+            <h5 style="font-size: 30px;font-weight: bold">{{user.username}}</h5>
+            <p style="font-size:18px;color:#aaabaf;"><small>@{{user.username}}</small></p>
+          </div>
+          </div>
+
+          <div class="data">
+            <div class="inner-data">
+              <h6 style="font-family:Bangers;border-bottom:5px solid  #39545C;
+  margin-bottom:10px">Full Name:</h6>
+              <p style="font-family:Cabin Sketch;font-weight:400px">{{user.first_name }} {{ user.last_name}}</p>
+            </div>
+
+            <div class="inner-data">
+              <h6 style="font-family:Bangers;border-bottom:5px solid #39545C;
+        margin-bottom:10px">Email Address:</h6>
+              <p style="font-family:Cabin Sketch;font-weight:400px">{{user.email }}</p>
+            </div>
+
+
+        </div>
+        </div>
+        
+        <a href="{% url 'music:change_profile' %}" class="btn btn-dark btn- center" style="font-family:Bangers;content: center"><i style="color:white;font-size:20px"class="fa fa-pencil-square-o" aria-hidden="true"></i>Change Profile Info</a>
+
+        <div class="floating-icon">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </div>
+
+       
+       <div class="btn-1">
+           <a href="">
+             <i class="fa fa-facebook"></i>
+           </a>
+          <a href="#">
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i class="fa fa-twitter"></i>
+          </a>
+</div>
+
+
+
+</div>
+    </div>
+    </div>
+  
+</section>
+
+
+
+
+
+
+          <div>
+      <footer class="text-muted">
+         <div class="container">
+          <p class="float-left"id="p_de">
+          <a href="#">Back to top</a>
+        </p>
+        
+          </div>
+          </footer>
+         </div>   
+
+        
+
+
+
 </body>
 </html>
-{% endblock %} 
+{% endblock %}

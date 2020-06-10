@@ -1,51 +1,126 @@
 
- .card{
-	border-radius: 0;
-	box-shadow: 10px 10px 20px #004d40 ;
-	transition:all 0.3s ease-in;
-	-webkit-transition:all 0.3s ease-in;
-	-moz-transition:all 0.3s ease-in;
-	padding-bottom: 20px;
-	box-sizing: 100px;
-}
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600')
+ 
 
-.card:hover{
-	background:#e57373;
+ *{
+ 	margin:0;
+ 	padding:0;
+ }
+
+ body{
+ 	background:#9ECBAE;
+ 	font-family: 'Open-Sans',sans-serif;
+ }
+
+ .wrapper{
+ 	position:absolute;
+ 	top:100%;
+ 	left:50%;
+ 	transform:translate(-50%,-50%);
+ }
+ #foo{
+ 	width:450px;
+ 	height:300px;
+ 	background: #fff;
+ 	border-radius: 5px;
+ 	box-shadow:0 0 10px rgba(0,0,0,0.5);
+
+ }
+
+ .img-container{
+ 	width:40%;
+ 	height:100%;
+ 	border-top-left-radius: 5px;
+ 	border-bottom-left-radius: 5px;
+ }
+
+ .img-container:before{
+ 	content:"";
+ 	position:absolute;
+ 	top:0;
+ 	left:0;
+ 	border-left: 35px solid #1DA1F2;
+ 	border-right:35px solid transparent;
+ 	border-top: 35px solid #1DA1F2;
+ 	border-bottom: 35px solid transparent;
+ 	cursor:pointer;
+ }
+
+.img-container:after{
+	font-family:fontawesome;
+	content:"\f083";
+	position:absolute;
+	top:10px;
+	left:12px;
 	color:#fff;
-	border-radius:5px;
-	border:none;
-	box-shadow: 5px 5px 10px black;
+	font-size: 21px;
+}
+
+.content{
+	float:left;
+	padding:30px 40px;
+	box-sizing:border-box;
+
+
+}
+.head{
+	padding-bottom:15px;
 
 }
 
-.card:hover h5,#album .card:hover i{
-	color:blackS;
-}
-img{
-	border-radius: 100%;
-	border:2px black;
-	
-	
-}
-.card-footer{
-	border-radius: 0;
-	box-shadow: 10px 10px 20px #00838f  ;
-	transition:all 0.3s ease-in;
-	-webkit-transition:all 0.3s ease-in;
-	-moz-transition:all 0.3s ease-in;
-	padding-bottom: 20px;
-	box-sizing: 100px;
+.floating-icon{
+	position:absolute;
+	width:50px;
+	height:50px;
+	background: #1DA1F2;
+	border-radius: 50%;
+	cursor: pointer;
+	top:38%;
+	right:-5%;
 }
 
-.card-footer:hover{
-	background:#e57373;
+
+.floating-icon .fa{
+	position:absolute;
+	left:18px;
+	top:15px;
 	color:#fff;
-	border-radius:5px;
-	border:none;
-	box-shadow: 5px 5px 10px black;
+	font-size: 20px;
+	transition: all 1s ease;
 
 }
 
-.card-footer:hover h5,#album .card:hover i{
-	color:blackS;
+
+
+.btn-1{
+	position:absolute;
+	top:10px;
+	right:10px;
+	font-size: 12px;
+	background:#1DA1F2; 
+	padding:6px 15px;
+	border-radius: 50px;
+	color:#fff;
+	cursor:pointer;
+	font-weight: 500;
+	transition: all 1s ease;
+	opacity:0;
+
+}
+
+
+.floating-icon.active .fa{
+	transform:rotate(45deg);
+	transition: all 1s ease;
+
+}
+
+
+.btn-1.active {
+	opacity:1.0;
+}
+
+i{
+	color:white;
+	font: 18px;
 }

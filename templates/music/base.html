@@ -114,7 +114,7 @@
 
  <ul class="nav navbar-nav navbar-right">
   {% if user.is_authenticated %}
-
+  
     <li><p style="font-family: Metal Mania">
         <a style="font-color:#c8e6c9" href="{% url 'music:profile' %}">
           <i class="fa fa-user" style="font-size: 16px"> My Account </i></a></p></li>
@@ -122,6 +122,13 @@
     <li><p style="font-family: Atomic">
         <a style="font-color:#c8e6c9" href="{% url 'music:logout' %}">
           <i class="fa fa-power-off" style="font-size: 16px"> LogOut </i></a></p></li>
+
+          <li>
+      
+
+
+
+     
   {% else %}    
       
       <li><p style="font-family: Atomic">
@@ -138,7 +145,25 @@
     </ul>
   
   </nav>
+  
+  
+
   </nav>
+  {% if user.is_authenticated %}
+  <nav class="navbar navbar-inverse" style="background:#004d40;padding:50px;padding-top:0px">
+
+ <ul class="nav navbar-nav navbar-left">
+  
+    <li>
+        <a style="font-color:#c8e6c9;font-family: Metal Mania" href="{% url 'music:profile' %}">@{{user.username}}</a></li>
+
+      </ul>
+    </nav>
+{% endif %}
+
+
+
+
 {% if user.is_authenticated %}
 
      {% include 'music/initial.html' %}
