@@ -50,7 +50,16 @@ h6{
 </style>
 </head>
 <body>
-<div class="container">
+
+  <div class="d-flex">
+         <div id="goo" class="d-flex">
+        <img id="boo" src="/static/images/music.gif">
+         </div> 
+       </div>
+
+
+         
+<div class="container" style="padding:10px">
 <main role="main" class="container">
   <div class="jumbotron"style="background:#3E4551">
     <h1 style="font-family: Bangers ;color:white">My Profile</h1>
@@ -100,19 +109,22 @@ View Favourite Albums &raquo;</a>
         
       </div>
     </footer>-->
+        
     <section style="height:400px">
+      
     <div class="wrapper">
-      <div class="container d-flex" id="foo">
+       <div class="container d-flex" id="foo">
+      
         
         <div class="img-container">
           {% if user.user_profile %}
              <img src='/medias/{{user.user_profile.profile_pic}}'style="width:200px;height:200px">
              <div style="padding:10px;text-align:center">
-             <a class="btn btn-info btn-sm" href="{% url 'music:add_pro_pic' %} "style="font-family: Bangers;font-size:16px;color:black">Change Profile Picture</a></div>
+             <a class="btn btn-info btn-sm" href="{% url 'music:change_pro_pic' %} "style="font-family: Bangers;font-size:16px;color:black">Change Profile Picture</a></div>
           {% else %}
             <img src='/medias/profile_pics/Profileimg.png'style="width:200px;height:200px">
             <div style="padding:10px;text-align:center">
-            <a class="btn btn-info btn-sm" href="{% url 'music:change_pro_pic' %}" style="font-family: Bangers;font-size:16px;color:black">Add Profile Picture</a></div>
+            <a class="btn btn-info btn-sm" href="{% url 'music:add_pro_pic' %}" style="font-family: Bangers;font-size:16px;color:black">Add Profile Picture</a></div>
  
           {% endif %} 
         </div>
@@ -165,15 +177,22 @@ View Favourite Albums &raquo;</a>
 </div>
     </div>
     </div>
-  
-</section>
+  <div class="card">
+    <div class="card-body">
+    <a href="" class="btn btn-dark btn-sm" style="padding:10px;font-family: Bangers;">
+    <i style="font-size:14px"class="fa fa-comments" aria-hidden="true"></i>
+Remarks</a>
+    <a href="" class="btn btn-dark btn-sm"style="padding:10px;font-family:Bangers;"><i style="font-size:14px"class="fas fa-compact-disc"aria-hidden="true"></i>
+    Recommend Albums</a>
+    <a href="" class="btn btn-dark btn-sm" style="padding:10px;font-family: Bangers;">
+    <i style="font-size:14px" class="fa fa-music" aria-hidden="true"></i>
+       Recommend Songs</a>
+    <a href="" class="btn btn-dark btn-sm"style="padding:10px;font-family:Bangers;">
+    <i style="font-size:14px"class="fas fa-blog" aria-hidden="true"></i> Follow Blog</a><br>
 
 
-
-
-
-
-          <div>
+  </div>
+  <div>
       <footer class="text-muted">
          <div class="container">
           <p class="float-left"id="p_de">
@@ -182,10 +201,11 @@ View Favourite Albums &raquo;</a>
         
           </div>
           </footer>
-         </div>   
+          </div>  
 
-        
-
+      </div>
+  </div>
+</section>
 
 
 </body>

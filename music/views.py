@@ -1,17 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.urls import reverse
-from music.models import Artist,Album,Lyrics,Songs
-from django.views import generic
+from music.models import Artist,Album,Lyrics,Songs,Blog,Comment,Likes,UserInfo
+from django.views import generic 
 from django.templatetags.static import static
 from django.db import connection
-from music.forms import SignUpForm,UserProfileChange,UserPhotoChange
+from music.forms import SignUpForm,UserProfileChange,ProfilePic
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm,PasswordChangeForm
 from django.contrib.auth import login,authenticate,logout
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse,reverse_lazy
 from django.contrib.auth.decorators import login_required
-
+from django.views.generic import CreateView,UpdateView,ListView,DetailView,View,DeleteView,TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+import uuid
 
 
 # Create your views here.
@@ -25,8 +27,6 @@ class AudioListView(generic.ListView):
 		context['audio'] =Songs.objects.all()
 		return context
         
-        
-
     
 def audios(request):
 	diction3={}
@@ -195,9 +195,9 @@ def pass_change(request):
 
 @login_required
 def add_pro_pic(request):
-	form=UserPhotoChange()
+	form=ProfilePic()
 	if request.method=='POST':
-		form=UserPhotoChange(request.POST,request.FILES)
+		form=ProfilePic(request.POST,request.FILES)
 		if form.is_valid():
 			user_obj=form.save(commit=False)
 			user_obj.user=request.user
@@ -207,9 +207,9 @@ def add_pro_pic(request):
 
 @login_required
 def change_pro_pic(request):
-	form=UserPhotoChange(insatnce=request.user.user_profile)
+	form=ProfilePic(instance=request.user.user_profile)
 	if request.method=='POST':
-		form=UserPhotoChange(request.POST,request.FILES,instance=request.user.user_profile)
+		form=ProfilePic(request.POST,request.FILES,instance=request.user.user_profile)
 		if form.is_valid():
 			form.save()
 			return HttpResponseRedirect(reverse('music:profile'))
@@ -217,23 +217,32 @@ def change_pro_pic(request):
     
 
 
-
-
-
-
-
-
 def blog(request):
 	blog_diction={}
 	return render(request,'music/blog.html',context=blog_diction)
 
-
 	
-def blog_list(request):
-	blog_list_diction={}
-	return render(request,'music/blog_list.html',context=blog_list_diction)
 
-	
+class CreateBlog(LoginRequiredMixin,CreateView):
+	model=Blog
+	template_name='music/create_blog.html'
+	fields=('blog_title','blog_content','blog_image',)
+
+	def form_valid(self,form):
+		blog_obj=form.save(commit=False)
+		blog_obj.blog_image=form.cleaned_data['blog_image']
+		blog_obj.author=self.request.user
+		title=blog_obj.blog_title
+		blog_obj.slug=title.replace(" ","-")+"-"+str(uuid.uuid4())
+		blog_obj.save()
+		return HttpResponseRedirect(reverse('music:blog_list'))
+
+
+class BlogList(ListView):
+	context_object_name='blogs'
+	model=Blog
+	template_name='music/blog_list.html'
+	queryset=Blog.objects.order_by('-publish_date')
 
 
 

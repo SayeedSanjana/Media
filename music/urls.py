@@ -20,18 +20,17 @@ urlpatterns = [
     path('register/',views.register,name="register"),
     path('blog/',views.blog,name="blog"),
     path('initial/',views.initial,name="initial"),
-    path('blog/blog_list/',views.blog_list,name="blog_list"),
+    path('blog_list/',views.BlogList.as_view(),name="blog_list"),
     path('login/',views.login_page,name="login"),
     path('logout/',views.logout_user,name="logout"),
     path('profile/',views.userprofile,name="profile"),
     path('change_profile/',views.user_change,name="change_profile"),
     path('password/',views.pass_change,name="pass_change"), 
     path('add-picture/',views.add_pro_pic,name="add_pro_pic"), 
-    path('change-picture/',views.change_pro_pic,name="change_pro_pic"),    
+    path('change-picture/',views.change_pro_pic,name="change_pro_pic"),
+    path('write/',views.CreateBlog.as_view(),name="create_blog") , 
    
-
-
-    ]
+]
 
 
   

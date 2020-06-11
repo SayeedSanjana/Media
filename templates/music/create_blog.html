@@ -1,0 +1,27 @@
+{%include 'music/blog.html'%}
+{% load staticfiles %}
+
+{% load crispy_forms_tags %}
+
+<!DOCTYPE>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div style="padding:100px;padding-top:50px">
+
+	<h2>Write Your Blog Here: </h2>
+	<form method="POST" enctype="multipart/form-data">
+		{{form|crispy}}
+		{% csrf_token %}
+		<button type="submit" class="btn btn-success btn-sm">Publish</button>
+	</form>
+</div>
+	
+
+</body>
+</html>
+
+
+

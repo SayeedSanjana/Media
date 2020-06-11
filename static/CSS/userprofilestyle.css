@@ -8,19 +8,38 @@
  }
 
  body{
- 	background:#9ECBAE;
+ 	background:#D7CDAB;
  	font-family: 'Open-Sans',sans-serif;
  }
 
  .wrapper{
  	position:absolute;
- 	top:100%;
- 	left:50%;
+ 	top:200%;
+ 	left:40%;
  	transform:translate(-50%,-50%);
+ 	border: 12px solid #0DC8E5;
+
  }
+ #boo{
+    width:1270px;
+    height:500px;
+    border: 10px solid #567340;
+;
+  padding: 15px;
+ }
+
+ #goo{
+
+ 	top:120%;
+ 	left:80%;
+ 	float:right;
+ 	background-color:#0C414F;
+ 	padding:10px;
+ }
+
  #foo{
  	width:450px;
- 	height:300px;
+ 	height:400px;
  	background: #fff;
  	border-radius: 5px;
  	box-shadow:0 0 10px rgba(0,0,0,0.5);
@@ -54,6 +73,14 @@
 	left:12px;
 	color:#fff;
 	font-size: 21px;
+}
+.card{
+	position:absolute;
+ 	top:245%;
+ 	left:40%;
+ 	transform:translate(-50%,-50%);
+ 	background-color:light grey;
+
 }
 
 .content{
