@@ -1,6 +1,113 @@
-{% extends 'music/base.html' %}
 
-{% block body %}
+{%include 'music/blog.html'%}
+{% load crispy_forms_tags %}
 {% load staticfiles %}
 
-{% endbody %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{blog.blog_title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Butcherman+Caps" >
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Atomic+Age" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Odibee Sans' rel='stylesheet'>
+
+   <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+</head>
+
+
+  <body>
+   <div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <a class="text-muted" href="#">Subscribe</a>
+      </div>
+    
+      
+    </div>
+  </header>
+
+  	<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark"style="padding:50px">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">Blog post for trending music,albums and musicians</h1>
+      <p class="lead my-3">And if you’re a performer, or an instrumentalist, or you’re still just not comfortable writing, keep in mind your blog posts can include pictures or can even be videos or podcasts.</p>
+      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+    </div>
+  </div>
+</div>
+
+
+  	<div class="container"style="padding:50px;border:5px solid #efebe9">
+  	<div class="row">
+  		<div class="col-sm-6">
+  			<h3 style="padding:50px;font-family: Abril Fatface">{{blog.blog_title}}</h3>
+  			<h4 style="padding-left:50px">Posted By: @{{blog.author}}</h4>
+  			<i><h6 style="padding-left:50px">Published On: {{blog.publish_date}}</h6></i>
+  			<i><h6 style="padding-left:50px">Updated On: {{blog.update_date}}</h6></i>
+  			<img src="/medias/{{blog.blog_image}}" alt="{{blog.blog_title}}" title={{blog.blog_title}} width="100%"style="padding:50px">
+  		</div>
+  		<div class="col-sm-6">
+  			<hr><br>
+  			<p style="padding-top:50px:">{{blog.blog_content|linebreaks}}</p>
+        <hr>
+
+  		</div>
+  	</div>
+  </div>
+<div class="container"style="padding:50px;border:5px solid #efebe9">
+  <div class="row">
+  	<div class="col-sm-6">
+       <a href="#" ><i style="padding:10px"class="fa fa-thumbs-o-up fa-2x"></i></a>
+        <a href="#" ><i style="padding:10px" class="fa fa-thumbs-o-down fa-2x"></i></a>
+  		<hr>
+  		<h5 style="border-bottom: 5px solid #3F729B;font-family: Odibee Sans;font-size:22px"><i class="fa fa-comments" aria-hidden="true"></i>
+      Comments: </h5>
+  		{% for comment in blog.blog_comment.all %}
+  		<p><a href="#">@{{comment.user}}</a> {{comment.comment}}<br><h6><i>{{comment.comment_date}}</i></h6></p>
+  		{% endfor %}
+
+  	</div>
+  	<div class="col-sm-6">
+  		<form  method="POST">
+  			{{comment_form|crispy}}
+  			{% csrf_token %}
+  			<button type="submit" class="btn btn-info btn-sm">Comment</button>
+  	
+  		</form>
+  	</div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+  </body>
+</html>
+
+

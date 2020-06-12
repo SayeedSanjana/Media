@@ -29,6 +29,7 @@ urlpatterns = [
     path('add-picture/',views.add_pro_pic,name="add_pro_pic"), 
     path('change-picture/',views.change_pro_pic,name="change_pro_pic"),
     path('write/',views.CreateBlog.as_view(),name="create_blog") , 
+    path('details/<int:id>',views.blog_details,name="blog_details"),
    
 ]
 

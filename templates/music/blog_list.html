@@ -1,4 +1,6 @@
 {% extends 'music/blog.html' %}
+{% load staticfiles %}
+{% load custom_filters %}
 {% block title_block %} Blog {% endblock %}
 {% block body_block %}
 
@@ -16,25 +18,118 @@
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Butcherman+Caps" >
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Atomic+Age" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
   
-    
+     <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
   
 
 </head>
 <body>
+ <div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <a class="text-muted" href="#">Subscribe</a>
+      </div>
+    
+      
+    </div>
+  </header>
+
+<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">Blog post for trending music,albums and musicians</h1>
+      <p class="lead my-3">And if you’re a performer, or an instrumentalist, or you’re still just not comfortable writing, keep in mind your blog posts can include pictures or can even be videos or podcasts.</p>
+      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Musicians</strong>
+          <h3 class="mb-0" style="font-family: Pacifico">Featured post</h3>
+          <div class="mb-1 text-muted">June 12</div>
+          <p class="card-text mb-auto">With so much information available for musicians and bands online, it can be a serious undertaking to sift through it all and find the most legitimate, valuable sources.Fortunately, we spend a lot of time in this world of music career tips and advice, so we’ve put together this list to point you in the right direction.</p>
+          <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        	<img src="/static/images/blog1.gif" style="width:220px;height:430px">
+          <!--<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">Albums</strong>
+          <h3 class="mb-0" style="font-family:Pacifico">Post title</h3>
+          <div class="mb-1 text-muted">June 11</div>
+          <p class="mb-auto">Getting your music heard is hard. Getting your music heard by the right people is even harder. You hear so many blogs, journalists and other industry big names complaining about unsolicited PR emails from bands, so it’s difficult to know where to tread. This is why we have set up this blog post, containing info and links to all the influential sites and blogs.</p>
+          <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        	<img src="/static/images/blog2.gif" style="width:220px;height:430px;">
+          <!--<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="container" style="padding:20px;border: 5px solid #eeeeee ;">
+
 {% for blog in blogs %}
-<h3>{{blog.blog_title}}</h3>
-<h6><i>{{blog.publish_date}}</i></h6>
-
-<div class="row">
+<h3 style="padding:20px;font-family: Abril Fatface">{{blog.blog_title}}</h3>
+<h6 style="padding:20px"><i>{{blog.publish_date}}</i></h6>
+<div style="padding:20px">
+<div class="row" style="padding:20px">
 	<div class="col-sm-4">
-		<img src="medias/{{blog.blog_image}}" alt="{{blog.blog_title}}" title={{blog.blog_title}} width="100%">
+		<img src="/medias/{{blog.blog_image}}" alt="{{blog.blog_title}}" title={{blog.blog_title}} width="100%" height="250px"style="padding-top:20px ;border: 5px solid #212121">
 	</div>
-	<div class="col-sm-8">
+	<div class="col-sm-8" style="padding:20px">
+		<p style="padding:20px ;padding-top: 0px;font:12px">{{blog.blog_content|range_filter|linebreaks}}<a href="{% url 'music:blog_details' blog.id %}">Read More</a></p>
+		<h6 style="padding:20px">Posted By: <a href="#">{{blog.author}}</a></h6>
 	</div>
 	</div>
+	<hr>
 {% endfor %}
+</div>
+</div>
+<div class="container" style="border:2px solid #bdbdbd ;">
+<footer class="blog-footer"style="background-color:#e0e0e0;padding:10px;padding-bottom: 35px" >
+  <p style="font-weight: italic;font-size:20px"><i>Blog built for</i> <i class="fab fa-earlybirds" style=" font-size:40px;color:#fbc02d">
+        </i>
+        <a style="color: #E69D32;font-size:25px;font-family: Butcherman Caps" href="{% url 'music:mains' %}">
+          Boo&Felix
+      </a>   <i> music site</i><br>
 
+    <a href="#" style="font-size:15px">Back to top</a>
+  </p>
+</footer>
+</div>
 
 </body>
 </html>

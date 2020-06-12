@@ -8,4 +8,9 @@ def split_str(value, key):
     """
     return value.split(key)
 
-register.filter('split',split_str)    
+
+
+
+	
+register.filter('split',split_str)  
+

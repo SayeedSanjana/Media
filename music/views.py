@@ -5,7 +5,7 @@ from music.models import Artist,Album,Lyrics,Songs,Blog,Comment,Likes,UserInfo
 from django.views import generic 
 from django.templatetags.static import static
 from django.db import connection
-from music.forms import SignUpForm,UserProfileChange,ProfilePic
+from music.forms import SignUpForm,UserProfileChange,ProfilePic,CommentForm
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm,PasswordChangeForm
 from django.contrib.auth import login,authenticate,logout
 from django.shortcuts import HttpResponseRedirect
@@ -244,9 +244,25 @@ class BlogList(ListView):
 	template_name='music/blog_list.html'
 	queryset=Blog.objects.order_by('-publish_date')
 
+@login_required
+def blog_details(request,id):
+	blog=Blog.objects.get(id=id)
+	comment_form=CommentForm()
+	if request.method=='POST':
+		comment_form=CommentForm(request.POST)
+		if comment_form.is_valid:
+			comment=comment_form.save(commit=False)
+			comment.user=request.user
+			comment.blog=blog
+			comment.save()
+			return HttpResponseRedirect(reverse('music:blog_details',kwargs={'id':id}))
+
+
+	return render(request,'music/blog_details.html',context={'blog':blog,'comment_form':comment_form})
 
 
 
+@login_required
  	
 
 
