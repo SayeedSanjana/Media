@@ -70,6 +70,7 @@
   			<h4 style="padding-left:50px">Posted By: @{{blog.author}}</h4>
   			<i><h6 style="padding-left:50px">Published On: {{blog.publish_date}}</h6></i>
   			<i><h6 style="padding-left:50px">Updated On: {{blog.update_date}}</h6></i>
+        <h6 style="padding-left:50px">{{blog.liked_blog.count}} Likes | {{blog.blog_comment.count}} Comments</h6>
   			<img src="/medias/{{blog.blog_image}}" alt="{{blog.blog_title}}" title={{blog.blog_title}} width="100%"style="padding:50px">
   		</div>
   		<div class="col-sm-6">
@@ -83,8 +84,14 @@
 <div class="container"style="padding:50px;border:5px solid #efebe9">
   <div class="row">
   	<div class="col-sm-6">
-       <a href="#" ><i style="padding:10px"class="fa fa-thumbs-o-up fa-2x"></i></a>
-        <a href="#" ><i style="padding:10px" class="fa fa-thumbs-o-down fa-2x"></i></a>
+
+      {% if not liked %}
+       <a href="{% url 'music:liked_post' pk=blog.pk %}" ><i style="padding:10px"class="fa fa-thumbs-o-up fa-2x check"></i></a>
+       {% else %}
+        <h6 class="alert alert-success">Already Liked</h6>
+        <a href="{% url 'music:unliked_post' pk=blog.pk %}" ><i style="padding:10px" class="fa fa-thumbs-o-down fa-2x checked"></i></a>
+
+       {% endif %} 
   		<hr>
   		<h5 style="border-bottom: 5px solid #3F729B;font-family: Odibee Sans;font-size:22px"><i class="fa fa-comments" aria-hidden="true"></i>
       Comments: </h5>

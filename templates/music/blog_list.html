@@ -111,7 +111,9 @@
 	</div>
 	<div class="col-sm-8" style="padding:20px">
 		<p style="padding:20px ;padding-top: 0px;font:12px">{{blog.blog_content|range_filter|linebreaks}}<a href="{% url 'music:blog_details' blog.id %}">Read More</a></p>
+
 		<h6 style="padding:20px">Posted By: <a href="#">{{blog.author}}</a></h6>
+    <h6 style="padding:20px">{{blog.liked_blog.count}} Likes | {{blog.blog_comment.count}} Comments</h6>
 	</div>
 	</div>
 	<hr>

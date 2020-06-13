@@ -244,10 +244,17 @@ class BlogList(ListView):
 	template_name='music/blog_list.html'
 	queryset=Blog.objects.order_by('-publish_date')
 
+
+
 @login_required
 def blog_details(request,id):
 	blog=Blog.objects.get(id=id)
 	comment_form=CommentForm()
+	already_liked=Likes.objects.filter(blog=blog,user=request.user)
+	if already_liked:
+		liked=True
+	else:
+		liked=False
 	if request.method=='POST':
 		comment_form=CommentForm(request.POST)
 		if comment_form.is_valid:
@@ -256,14 +263,34 @@ def blog_details(request,id):
 			comment.blog=blog
 			comment.save()
 			return HttpResponseRedirect(reverse('music:blog_details',kwargs={'id':id}))
-
-
-	return render(request,'music/blog_details.html',context={'blog':blog,'comment_form':comment_form})
-
-
+	return render(request,'music/blog_details.html',context={'blog':blog,'comment_form':comment_form,'liked':liked})		
 
 @login_required
- 	
+def liked(request,pk):
+	blog=Blog.objects.get(pk=pk)
+	user=request.user
+	already_liked=Likes.objects.filter(blog=blog,user=user)
+	if not already_liked:
+		liked_post=Likes(blog=blog,user=user)
+		liked_post.save()
+	return HttpResponseRedirect(reverse('music:blog_details',kwargs={'id':blog.id}))
+	
+
+@login_required
+def unliked(request,pk):
+	blog=Blog.objects.get(pk=pk)
+	user=request.user
+	already_liked=Likes.objects.filter(blog=blog,user=user)
+	already_liked.delete()
+	return HttpResponseRedirect(reverse('music:blog_details',kwargs={'id':blog.id}))	
+
+
+
+
+
+
+
+
 
 
 
