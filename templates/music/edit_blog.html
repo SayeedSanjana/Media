@@ -1,6 +1,49 @@
-{% extends 'music/base.html' %}
+{% include 'music/blog.html' %}
 
-{% block body %}
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 
-{% endbody %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title_block %}Create New Account{% endblock %}</title>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="jquery-3.1.1.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Cabin Sketch' rel='stylesheet'>
+
+
+  <body style="background: #efebe9">
+  	<div class="container"style="padding: 30px;">
+
+  	<h2 style="padding: 5px;padding-bottom: 10px"><i class='far fa-edit' style='font-size:26px'></i>  Edit Your Blog: </h2>	
+  <div class="container" style="border:3px solid #d7ccc8;padding:20px">
+{%ifequal blog.author user %}
+  <form  method="POST">
+  {{form|crispy}}
+  {% csrf_token %}
+  <button type="submit"class="btn btn-outline-info btn-sm" >Update</button>
+{% else %}  
+<p>You are not allowed to view this page 404</p>
+ 
+</form>
+{% endifequal %} 
+</div>
+</div>
+  	
+  </body>
+</head>
+</html>

@@ -221,6 +221,11 @@ def blog(request):
 	blog_diction={}
 	return render(request,'music/blog.html',context=blog_diction)
 
+
+class MyBlogs(LoginRequiredMixin,TemplateView):
+	template_name='music/my_blogs.html'
+
+
 	
 
 class CreateBlog(LoginRequiredMixin,CreateView):
@@ -283,6 +288,15 @@ def unliked(request,pk):
 	already_liked=Likes.objects.filter(blog=blog,user=user)
 	already_liked.delete()
 	return HttpResponseRedirect(reverse('music:blog_details',kwargs={'id':blog.id}))	
+
+
+class UpdateBlog(LoginRequiredMixin,UpdateView):
+	model=Blog
+	fields=('blog_title','blog_content','blog_image')
+	template_name='music/edit_blog.html'
+
+	def get_success_url(self,**kwargs):
+		return reverse_lazy('music:blog_details',kwargs={'id':self.object.id})
 
 
 

@@ -1,6 +1,67 @@
-{% extends 'music/base.html' %}
-
-{% block body %}
+{% include 'music/blog.html' %}
+{% load custom_filters %}
 {% load staticfiles %}
 
-{% endbody %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title_block %}Create New Account{% endblock %}</title>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="jquery-3.1.1.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Cabin Sketch' rel='stylesheet'>
+</head>
+<body>
+
+<div class="container" style="padding:10px;padding-top: 50px">
+<main role="main" class="container">
+  <div class="jumbotron"style="background:#3E4551">
+  	 <h1 style="font-family: Bangers ;color:white;border-bottom:2px solid white;padding:3px">My Blog List :</h1>
+  	<img src="/static/images/blogbg.gif" width="350px" height="250px">
+  	<img src="/static/images/blogbg1.gif" width="350px" height="250px">
+  	<img src="/static/images/blogbg2.gif" width="250px" height="250px">
+   
+    <p class="lead" style="font-family:Cabin Sketch;color:white"></p>
+    <a class="btn btn-lg btn-success" href="{% url 'music:create_blog' %}" role="button"style="font-family: Bangers"><i class="fa fa-sticky-note-o" aria-hidden="true"></i> Post New Blogs &raquo;</a>
+  </div>
+</main>
+</div>
+
+
+<div style="padding:80px">
+{% for blog in user.post_author.all %}
+<div class="container"style="padding:30px;border:solid 3px #eceff1">
+<h3 style="padding:5px;padding-bottom:5px">{{blog.blog_title}}</h3>
+<h6>{{blog.publish_date}}</h6>
+<div style="padding:10px"class="row">
+	<div class="col-sm-4">
+		<img src="/medias/{{blog.blog_image}}" alt="{{blog.blog_title}}" title={{blog.blog_title}} width="100%" height="250px"style="padding-top:20px ;border: 5px solid #212121">
+
+	</div>
+	<div class="col-sm-8">
+		<p>{{blog.blog_content|linebreaks|range_filter}}
+		<a href="{% url 'music:blog_details' blog.id %}">Read More</a></p>
+</div>
+</div>
+<hr>
+<a href="{% url 'music:edit_blog' pk=blog.id %}"><i class="fa fa-edit"> Edit </i></a>
+</div>
+{% endfor %}
+</div>
+</body>
+</html>
+
+
+
+

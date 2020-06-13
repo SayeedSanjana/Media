@@ -44,9 +44,9 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{% url 'music:create_blog' %}">Write Blog</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="{% url 'music:my_blogs' %}">My Blogs</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="{% url 'music:logout' %}">Logout</a>
         </div>
       </li>
 {% endif %}     
