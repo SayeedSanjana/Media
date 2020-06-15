@@ -130,6 +130,16 @@ class Songs(models.Model):
 	num_stars=models.IntegerField(choices=rating)
 	Trends=models.CharField(max_length=200,blank=True)
 
+
+class User_Playlists(models.Model):
+	track=models.ForeignKey(Songs,on_delete=models.CASCADE,related_name='songs')
+	user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='playlist_user')
+
+
+	def __str__(self):
+		return self.track+self.user
+
+
 	
 
 

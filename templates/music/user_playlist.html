@@ -1,0 +1,84 @@
+{% include 'music/base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title_block %}Create New Account{% endblock %}</title>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="jquery-3.1.1.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Cabin Sketch' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Metal Mania' rel='stylesheet'>
+  <style>
+  .glow {
+  font-size: 60px;
+  color:#00695c  ;
+  font-family: 'Bangers';
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  padding:5px;
+}
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+</style>
+
+  <!--<link rel="stylesheet" href="{% static "CSS/ba.css" %}">-->
+</head>
+<body>
+	<div class="container-fluid"style="padding-bottom: 50px ">
+	<div class="container" style="padding:50px;border: 3px solid #c5cae9;background: #f5f5f5 ">
+		<div class="row">
+			<div class=" col-sm-12">
+		
+		<img src="/static/images/playlist1.gif" width="250px" height="250px">
+		<img src="/static/images/playlist.gif" width="500px" height="250px">
+		<img src="/static/images/playlist2.gif" width="250px" height="250px" style="border:2px solid #e3f2fd ">
+	</div>
+</div>
+</div>
+</div>
+
+<div class="container" style="padding:200px;padding-top:100px;border:solid 3px #f1f8e9;background:#2E2E2E">
+	<div class="row">
+		<div class="container" style="padding:5px">
+  <h1 class="glow">Favourite Playlist.....</h1><hr>
+</div>
+{% for playlists in playlist %}
+<div style="padding:10px;padding-top:20px;padding-left:20px;border:solid 3px #f1f8e9" class="col-sm-6">
+<h5 style="font-family: Metal Mania;color:white;border-bottom: 2px solid white">{{playlists.track.song_Name}}</h5><hr>
+<button type="button" class="btn btn-success btn-sm">
+      <i style="font-size:12px"class="fas fa-play">PLAY</i></button><hr>
+<audio controls>
+    <source src="{{playlists.track.audio_file.url}}" type="audio/mpeg">
+  </audio>
+</div>
+<div class="col-sm-6"style="border:solid 3px #f1f8e9">
+	 <img src="{{playlists.track.song_logo}}" width="200px",height="230px" style="padding-bottom: 5px;padding-top:50px;padding-right:30px;padding-left:20px">
+	 <br>
+	 <br>
+	</div>
+	<hr>
+{% endfor %}
+</div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.urls import reverse
-from music.models import Artist,Album,Lyrics,Songs,Blog,Comment,Likes,UserInfo
+from music.models import Artist,Album,Lyrics,Songs,Blog,Comment,Likes,UserInfo,User_Playlists
 from django.views import generic 
 from django.templatetags.static import static
 from django.db import connection
@@ -299,7 +299,24 @@ class UpdateBlog(LoginRequiredMixin,UpdateView):
 		return reverse_lazy('music:blog_details',kwargs={'id':self.object.id})
 
 
+@login_required
+def user_playlist(request,pk):
+	songs=Songs.objects.get(pk=pk)
+	user=request.user
+	already_in_playlist=User_Playlists.objects.filter(track=songs,user=user)
+	if not already_in_playlist:
+		playlist=User_Playlists(track=songs,user=user)
+		playlist.save()
+	return HttpResponseRedirect(reverse('music:view_playlist'))
 
+
+@login_required
+def view_playlist(request):
+	user=request.user
+	playlist=User_Playlists.objects.order_by('track').filter(user=user)
+	songs=Songs.objects.filter(pk=playlist)
+	palylist_diction={}
+	return render(request,'music/user_playlist.html',context={'playlist':playlist,'songs':songs})
 
 
 

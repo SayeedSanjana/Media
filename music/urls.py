@@ -34,6 +34,8 @@ urlpatterns = [
     path('unliked/<pk>/',views.unliked,name="unliked_post"),
     path('my_blogs',views.MyBlogs.as_view(),name="my_blogs"),
     path('my_blogs/<pk>/',views.UpdateBlog.as_view(),name="edit_blog"),
+    path('my_playlists/<pk>/',views.user_playlist,name="my_playlists"),
+    path('view_playlist',views.view_playlist,name="view_playlist"),
     
 
    

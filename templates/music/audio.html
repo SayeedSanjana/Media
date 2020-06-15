@@ -68,6 +68,9 @@
   <p class="lead" >{{detail.song_description}}</p>
 
 </div>
+  </div>
+
+</div>
    <!-- <p class="lead" >{{detail.song_description}}</p>-->
     
         <!--<div class="float-right">
@@ -103,11 +106,10 @@
   </audio>
   </div>
   <div class="container-fluid" style="padding:10px">
-    <button type="button" class="btn btn-info  btn-sm" data-container="body"data-toggle="popover" data-placement="bottom" data-content="{{detail.lyrics}}">View Lyrics
-            </button>
-  
-</div>
-  </div>
+    <button style="font-weight: bold"type="button" class="btn btn-info  btn-sm" data-container="body"data-toggle="popover" data-placement="bottom" data-content="{{detail.lyrics}}">View Lyrics
+            </button><br><br>
+             <a href="{% url 'music:my_playlists' detail.id %}"><button type="button" class="btn btn-danger"><i class="fas fa-plus-circle"  style="font-size:16px">Add to PlayList</i></button></a>
+            
 </div>
 </section>
 

@@ -24,8 +24,12 @@
        .sidenav a {font-size: 18px;}
 }
   </script>
+  <style>
+  
+
+</style>
 </head>
-  <body>
+  <body id="poo">
          
 
 <div style="background-color:lighttgrey">
@@ -45,8 +49,8 @@
 
        
     <li class="nav-item active">
-        <a class="nav-link" href="#">
-         <i class="fas fa-plus-circle"  style="font-size:16px">ADD PLAYLISTS
+        <a class="nav-link" href="{% url 'music:view_playlist' %}">
+         <i class="fas fa-plus-circle"  style="font-size:16px">VIEW PLAYLISTS
         </i>
          </a>
        </li>
