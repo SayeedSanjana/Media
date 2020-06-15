@@ -1,4 +1,5 @@
 {% extends 'music/base.html' %}
+{% load custom_filters %}
 {% load staticfiles %}
 {% block body %}
 
@@ -19,41 +20,70 @@
   <script type="text/javascript" src="jquery-3.1.1.js"></script>
   <script src="js/bootstrap.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="{% static "CSS/bandstyle.css" %}">
+  <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet'>
+  <link rel="stylesheet" href="{% static "CSS/lyricsstyle.css" %}">
+  <style>
+</style>
 </head>
-<body style="background:url('/static/images/bg.jpg'); background-size:cover">
+<body style="background:#eeeeee">
 
 
 
-  <section class="jumbotron">
-    <img src="/static/images/lybg.gif" style="border: 5px solid #006064;"
-    >
-    <img src="/static/images/lybg1.gif"style="border: 5px solid #006064;"
-    >
-    <img src="/static/images/lybg2.gif" style="border: 5px solid #006064;"
-    >
-    <img src="/static/images/lygb3.gif" style="border: 5px solid #006064;"
-    >
-  </section>
+  <div class="container" style="padding:10px;padding-top: 50px">
+<main role="main" class="container">
+  <div class="jumbotron"style="background:url('/static/images/lyrics1.jpg');background-size:cover ">
+     
+    <img src="/static/images/lyricsfinal.gif" width="100%" height="300px">
 
+  </div>
+</main>
+</div>
+<div style="padding:50px;padding-left:100px">
+    <h5 style="font-family:Anton;border-bottom: 5px solid black">Click to know more about differnt song's lyrics & lyricists</h5>
+      
+</div>
   <section>
 
-    <div class="container" style="background:url('/static/images/bg1.jpg')">
-
+    <div class="container" style="padding:30px;border:solid 3px #d7ccc8  ;background:url('/static/images/lyp.jpg');background-size: cover ">
+       
       <div class="row ">
-        {% for lyrics in lyric %}
+        {% for song in songs %}
 
 
-        <div class="col-md-6 col-sm-6 align-self-center”">
+        <div class="col-sm-4" style="padding:20px">
           <div class="card">
-            <div class="card-image"></div>
+
+          
+            <div class="card-title" style=" background:#e0e0e0 ">
+              <h5 style="text-align: center;padding:5px;font-family:Abril Fatface">
+                <img src="/static/images/source.gif" width="60px" height="50px">{{song.song_Name}}</h5>
+            </div>
+            <div style="background:#1C2331">
+            <img style="width:250px;height:150px;border-radius: 30%;padding:5px;padding-top:10px;padding-left:10px;padding-right:10px" class="card-img-top" src="{{song.song_logo}}" alt="Card image cap" ><hr></div>
+            
 
             <div class="card-body">
-            
-            
+              <div>
+              <p style="font-family:Satisfy;font-size: 12px">{{song.album}}<br>
+              {{song.genre}}</p>
+            <div></div>
+        <button type="button" class="btn btn-outline-info  btn-sm" data-container="body"data-toggle="popover" data-placement="bottom" data-content="{{song.lyrics}}">LYRICS...
+        </button>
+      </div><br>
+       <div>
+        <button type="button" class="btn btn-outline-info btn-sm" data-container="body"data-toggle="popover" data-placement="bottom" data-content="{{song.lyrics.lyricist}}">LYRICIST...
+        </button>
+      </div><br>
+       <div>
+        <button type="button" class="btn btn-outline-info  btn-sm" data-container="body"data-toggle="popover" data-placement="bottom" data-content="{{song.lyrics.lyricist_descrption}}">MORE...
+        </button>
+      </div>
+
                   </div>
 
-              <div class="card-footer"style="background:#004d40  ;border-radius:10px;height:3rem
+              <div class="card-footer"style="background:#bcaaa4 ;border-radius:5px;height:1rem
               "></div>
             </div>
           </div>
@@ -63,6 +93,7 @@
       </div>
     </div>
     </section>
+  
 
     <footer class="text-muted">
       <div class="container">
@@ -73,6 +104,11 @@
       </div>
     </footer>
 
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+  });
+</script>
 
 </body>
 </html>

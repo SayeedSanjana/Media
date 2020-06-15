@@ -165,7 +165,7 @@
    			        <td>
 
                    <button type="button" class="btn btn-warning">
-                       <a style="background:#fff59"href="">{{artists.Artist_name}}
+                       <a style="background:#fff59"href="{% url 'music:artist_description' artists.pk %}">{{artists.Artist_name}}
                        </a></button>
                 </td>
    			        <td>{{artists.BirthPlace}}</td>

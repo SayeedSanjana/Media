@@ -44,7 +44,7 @@
 
   <!--<link rel="stylesheet" href="{% static "CSS/ba.css" %}">-->
 </head>
-<body>
+<body style="background-image: url('/static/images/playbg.jpg');background-size:cover">
 	<div class="container-fluid"style="padding-bottom: 50px ">
 	<div class="container" style="padding:50px;border: 3px solid #c5cae9;background: #f5f5f5 ">
 		<div class="row">
@@ -58,10 +58,10 @@
 </div>
 </div>
 
-<div class="container" style="padding:200px;padding-top:100px;border:solid 3px #f1f8e9;background:#2E2E2E">
+<div class="container" style="padding:200px;padding-top:100px;border:solid 3px #6d4c41;background:#37474F">
 	<div class="row">
 		<div class="container" style="padding:5px">
-  <h1 class="glow">Favourite Playlist.....</h1><hr>
+  <h1 class="glow"><img src="/static/images/heart.gif" width="100px" height="100px" >Favourite Playlist.....</h1><hr>
 </div>
 {% for playlists in playlist %}
 <div style="padding:10px;padding-top:20px;padding-left:20px;border:solid 3px #f1f8e9" class="col-sm-6">

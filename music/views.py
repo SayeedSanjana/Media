@@ -84,6 +84,12 @@ def band(request):
 	band_diction={'band':band}
 	return render(request,'music/band.html',context=band_diction)
 
+def lyrics(request):
+	songs=Songs.objects.order_by('song_Name')
+	lyrics_diction={'songs':songs}
+	return render(request,'music/lyrics.html',context=lyrics_diction)
+
+
 
 
 
@@ -119,6 +125,12 @@ def band(request):
 def initial(request):
 	initial_diction={}
 	return render(request,'music/initial.html',context=initial_diction)
+
+
+def solo_artist(request,pk):
+	artist=Artist.objects.get(pk=pk)
+	artist_diction={'artist':artist}
+	return render(request,'music/solo_artist.html',context=artist_diction)
 
 
 

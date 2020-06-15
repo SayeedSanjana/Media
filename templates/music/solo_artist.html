@@ -1,0 +1,69 @@
+{% include 'music/base.html' %}
+{% load staticfiles %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title_block %}Create New Account{% endblock %}</title>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="jquery-3.1.1.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Cabin Sketch' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Metal Mania' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Rock Salt' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Shadows Into Light' rel='stylesheet'>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="{{artist.Artist_logo}}" width="300px" height="300px" style="border:5px solid #b71c1c">
+      </div>
+      <div class="col-sm-8">
+        <h3 style="font-family:Rock Salt">{{artist.Artist_name}}</h3>
+        <p style="font-style: italic">{{artist.BirthPlace}}<br>
+        {{artist.Born}}</p><br>
+        <p >{{artist.Artist_Description|linebreaks}}</p><hr>
+      </div>
+
+
+
+    </div>
+  </div>
+<div class="container" style="padding-top:30px;padding-bottom:10px">
+  <div class="container" style="border:2px solid #bdbdbd ;padding:5px">
+<footer class="blog-footer"style="background-color:#e0e0e0;padding:10px;padding-bottom: 35px" >
+  <p>For more details check..</p>
+  <a href=""style="padding:5px"><i style="font-size:20px" class="fa fa-twitter" aria-hidden="true"></i></a>
+  <a href="" style="padding:5px"><i  style="font-size:20px" class="fa fa-facebook-square" aria-hidden="true"></i></a>
+ <a href=""style="padding:5px"> <i  style="font-size:20px" class="fa fa-instagram" aria-hidden="true"></i></a>
+  <a href=""style="padding:5px"><i  style="font-size:20px" class="fa fa-wikipedia-w" aria-hidden="true"></i></a>
+
+
+
+
+</footer>
+</div>
+</div>
+
+  <footer class="text-muted">
+      <div class="container">
+        <p class="float-right" id="p_de">
+          <a href="#">Back to top</a>
+        </p>
+        
+      </div>
+    </footer>
+</body>
+</html>
