@@ -9,6 +9,7 @@ urlpatterns = [
     
     #/music
     path('',views.mains,name='mains'),
+    path('base/',views.base,name='base'),
     path('artists/',views.index,name='index'),
     path('songs/',views.song,name='song'),
     path('audios/',views.audios,name='audios'),

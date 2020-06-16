@@ -108,8 +108,10 @@
   </div>
   <div class="container-fluid" style="padding:10px">
     <button style="font-weight: bold"type="button" class="btn btn-info  btn-sm" data-container="body"data-toggle="popover" data-placement="bottom" data-content="{{detail.lyrics}}">View Lyrics
+      {% if user.is_authenticated %}
             </button><br><br>
              <a href="{% url 'music:my_playlists' detail.id %}"><button type="button" class="btn btn-danger"><i class="fas fa-plus-circle"  style="font-size:16px">Add to PlayList</i></button></a>
+      {% endif %}       
             
 </div>
 </section>

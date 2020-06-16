@@ -11,9 +11,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Butcherman+Caps" >
+   <link href='https://fonts.googleapis.com/css?family=Monoton' rel='stylesheet'>
+   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Atomic+Age" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <style>
+  div.transbox {
+  margin: 30px;
+  background-color:black;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+div.transbox p{
+  margin: 5%;
+  color:white;
+}
+
+div.transbox h5{
+  margin: 5%;
+  color:white;
+}
+div.transbox h3 {
+  margin: 5%;
+  color:white;
+  font-family:Monoton;
+  text:center;
+}
+</style>
     
 	<script>
     @media screen and (max-height: 450px) {
@@ -32,7 +57,7 @@
 
     <link rel="stylesheet" href="{% static "CSS/basestyle.css" %}">
 </head>
-<body>
+<body >
  <nav style="padding:15px"id="nav_b"class="navbar navbar-expand-xl navbar-dark bg-dark mb-4">
  <div class="container-fluid">
   <!--<img src="https://image.flaticon.com/icons/svg/2965/2965155.svg" width="50" height="50" alt="Dog free icon" title="Dog free icon">-->
@@ -117,13 +142,17 @@
   
     <li><p style="font-family: Metal Mania">
         <a style="font-color:#c8e6c9" href="{% url 'music:profile' %}">
-          <i class="fa fa-user" style="font-size: 16px"> My Account </i></a></p></li>
+          <i class="fa fa-user" style="font-size: 16px"> My Account </i></a></p></li><br>
 
     <li><p style="font-family: Atomic">
         <a style="font-color:#c8e6c9" href="{% url 'music:logout' %}">
           <i class="fa fa-power-off" style="font-size: 16px"> LogOut </i></a></p></li>
 
-          <li>
+            <li>
+
+             <p style="color:white">
+             <img style="width:50px;height:50px;border-radius: 50%"src="/medias/{{user.user_profile.profile_pic}}"> <i style="font-size:16px">@{{user.username}}</i></p>
+           </li>
       
 
 
@@ -138,6 +167,8 @@
       
       <li><p style="font-family: Atomic">
         <a style="font-color:#c8e6c9" href="{% url 'music:login' %}"><i class="fas fa-sign-in-alt" style="font-size: 16px"></i> Login </a></p></li>
+
+
       
   {% endif %}    
     
@@ -154,9 +185,14 @@
 
 
 {% if user.is_authenticated %}
+    
 
      {% include 'music/initial.html' %}
-{% endif %}  
+
+{% endif %} 
+
+
+
 
 	  {% block body %}
 	  {% endblock %}

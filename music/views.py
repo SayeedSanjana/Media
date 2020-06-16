@@ -38,7 +38,11 @@ def audios(request):
 
 def mains(request):
 	diction1={}
-	return render(request,'music/base.html',context=diction1)
+	return render(request,'music/first.html',context=diction1)
+
+def base(request):
+	diction2={}
+	return render(request,'music/base.html',context=diction2)	
 
 def index(request):
 	best_songs=[]
